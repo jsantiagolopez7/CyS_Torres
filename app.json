@@ -1,0 +1,68 @@
+{
+  "expo": {
+    "updates": {
+      "url": "https://u.expo.dev/7454ba89-1058-4de5-a1b1-b5c918f2791a",
+      "fallbackToCacheTimeout": 0
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Se necesita acceso a tus fotos para seleccionar una imagen de perfil.",
+          "cameraPermission": "Se necesita acceso a la cámara para tomar fotos.",
+          "microphonePermission": "El micrófono está deshabilitado en esta aplicación."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#ffffff",
+          "sounds": ["./assets/notification-sound.wav"]
+        }
+      ]
+    ],
+    "name": "Concentrados_y_Servicios_Torres",
+    "slug": "Concentrados_y_Servicios_Torres",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Esta aplicación necesita acceder a tu ubicación para registrar entrada y salida de empleados.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Esta aplicación requiere acceso continuo a la ubicación para registrar la asistencia de los empleados."
+      }
+    },
+    "android": {
+      "package": "com.Concentrados_Torres.CyS_app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7454ba89-1058-4de5-a1b1-b5c918f2791a"
+      }
+    },
+    "owner": "jsantiagolopez"
+  }
+}

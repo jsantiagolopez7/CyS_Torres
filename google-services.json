@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "940005830280",
+    "project_id": "cys-torres-sas",
+    "storage_bucket": "cys-torres-sas.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940005830280:android:3b82c186d161162822793d",
+        "android_client_info": {
+          "package_name": "com.Concentrados_Torres.CyS_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940005830280-k4ng507u1e80a7isbjg31ul7hq4clhs4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcO0nN_oevW1z8DpQRYd68_micx_3IhzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940005830280-k4ng507u1e80a7isbjg31ul7hq4clhs4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940005830280:android:376b1dcf74c85a0622793d",
+        "android_client_info": {
+          "package_name": "com.cys.torres"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940005830280-k4ng507u1e80a7isbjg31ul7hq4clhs4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcO0nN_oevW1z8DpQRYd68_micx_3IhzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940005830280-k4ng507u1e80a7isbjg31ul7hq4clhs4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

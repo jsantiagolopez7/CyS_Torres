@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "cys-torres-sas",
+    "prod": "cys-torres-sas"
+  },
+  "targets": {},
+  "etags": {}
+}

@@ -1,0 +1,62 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 📌 Colección de usuarios (/users/{userId})
+    match /users/{userId} {
+      // 🔹 Permitir que cualquier usuario autenticado cree su perfil, siempre como "user"
+      allow create: if request.auth != null &&
+                    (!request.resource.data.keys().hasAny(["role"]) || request.resource.data.role == "user");
+
+      // 🔹 Un usuario puede leer y actualizar su propio perfil (sin cambiar su rol)
+      allow read, update: if request.auth != null &&
+                          request.auth.uid == userId &&
+                          (request.resource.data.role == resource.data.role || !request.resource.data.keys().hasAny(["role"]));
+
+      // 🔹 Los administradores pueden leer todos los perfiles y cambiar roles (excepto el suyo propio)
+      allow read: if isAdmin();
+      allow update: if isAdmin() && request.auth.uid != userId;
+    }
+
+    // 📌 Colección de registros (/registros/{docId})
+    match /registros/{docId} {
+      // 🔹 Un usuario puede registrar su entrada/salida si los datos son válidos
+      allow create, update: if request.auth != null &&
+                             request.auth.uid == request.resource.data.userId &&
+                             isValidData(request.resource.data);
+
+      // 🔹 Un usuario puede ver solo sus propios registros, pero los admins pueden ver todos
+      allow read: if request.auth != null && 
+                  (request.auth.uid == resource.data.userId || isAdmin());
+
+      // ❌ Nadie puede eliminar registros
+      allow delete: if false;
+    }
+
+    // 📌 Función para validar la estructura de datos de los registros
+    function isValidData(data) {
+      return data.userId is string &&
+             data.dateTime is string &&
+             data.imageUri is string &&
+             data.action is string &&
+             data.plant is string &&
+             (data.location == null || 
+              (data.location.latitude is number &&
+               data.location.longitude is number));
+    }
+
+    // 📌 Función para verificar si el usuario autenticado es administrador
+    function isAdmin() {
+      return request.auth != null &&
+             exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
+    }
+  }
+}
+
+
+
+
+
+
